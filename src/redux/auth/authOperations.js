@@ -3,18 +3,6 @@ import axios from 'axios';
 
 import { toast } from 'react-toastify';
 import { clearAuthHeader, setAuthHeader } from 'services/api';
-// import { clearAuthHeader, setAuthHeader } from 'services/phonebookAPI';
-
-// axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
-
-// export const setAuthHeader = token => {
-//   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-// };
-
-// export const clearAuthHeader = () => {
-//   axios.defaults.headers.common.Authorization = '';
-// };
-//
 
 export const register = createAsyncThunk(
   'auth/register',
