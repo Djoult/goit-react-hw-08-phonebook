@@ -13,6 +13,7 @@ import { clearAuthHeader, setAuthHeader } from 'services/phonebookAPI';
 // export const clearAuthHeader = () => {
 //   axios.defaults.headers.common.Authorization = '';
 // };
+//
 
 export const register = createAsyncThunk(
   'auth/register',
