@@ -1,52 +1,84 @@
-import styled from '@emotion/styled';
+import { Form, Field, Formik } from 'formik';
+import styled from 'styled-components';
 
-export const Div = styled.div`
-  /* width: 400px; */
-  /* outline: 2px solid red; */
-`;
-export const Form = styled.form`
-  margin: 0 auto;
-  width: 500px;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  text-align: center;
+export const FormikWrapper = styled(Formik)``;
+
+export const FormBox = styled(Form)`
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  align-items: center;
+  gap: 30px;
+  font-size: 20px;
+  margin-bottom: 50px;
+  max-width: 500px;
 `;
 export const Label = styled.label`
-  display: block;
-  margin: 0 auto;
-  margin-bottom: 16px;
-  max-width: 300px;
-  text-align: center;
-  color: #af4425;
-`;
-export const Input = styled.input`
-  display: block;
-  padding: 4px 8px;
-  margin-top: 4px;
-  background-color: #ebdcb2;
-  font-weight: 500;
-  font-size: 16px;
-  color: #662e1c;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
   width: 100%;
-  border-radius: 4px;
-  border-color: #c9a66b;
-  outline: none;
 `;
-export const Button = styled.button`
-  display: inline-block;
-  margin-left: auto;
+
+export const Text = styled.span`
+  display: flex;
   margin-right: auto;
-  text-align: center;
-  font-family: inherit;
-  width: 200px;
-  cursor: pointer;
-  color: #af4425;
-  border-color: transparent;
-  border: 2px solid;
+  justify-content: center;
+  color: #8000ff;
+  font-size: 1.5rem;
+  -webkit-text-stroke: 1px black;
+`;
+
+export const InputName = styled(Field)`
+  width: 400px;
+  margin: 0 auto;
+  padding: 10px;
+  border: none;
   border-radius: 10px;
-  border-color: #c9a66b;
-  transition: transform 250ms linear;
-  :hover,
-  :focus {
-    transform: scale(1.08);
+  font-size: 1.2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.2s ease;
+
+  &::placeholder {
+    font-size: 20px;
   }
+  &:focus {
+    outline: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+  }
+`;
+
+export const InputTel = styled(InputName)``;
+
+export const Button = styled.button`
+  background-color: #6a2ddb;
+  color: white;
+  -webkit-text-stroke: 1px black;
+  display: flex;
+  width: 150px;
+  min-height: 50px;
+  font-size: 24px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  transition: background-color 1000ms cubic-bezier(0.075, 0.82, 0.165, 1);
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: rgb(0, 55, 255);
+  }
+`;
+
+export const Message = styled.p`
+  text-align: center;
+  margin-top: 10px;
+  color: red;
+  font-size: 17px;
+  -webkit-text-stroke: 1px black;
+  -webkit-text-fill-color: white;
 `;
