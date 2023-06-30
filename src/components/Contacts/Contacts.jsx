@@ -1,28 +1,11 @@
-import { RxAvatar } from 'react-icons/rx';
-import { RiDeleteBin6Line } from 'react-icons/ri';
-import {
-  UlList,
-  LiItem,
-  SpanIcon,
-  SpanName,
-  SpanNumber,
-  ButtonDlt,
-} from './Contacts.styled';
-import {
-  useGetContactsQuery,
-  useDeleteContactMutation,
-} from '../../redux/contactsSlice.js';
 import { useSelector } from 'react-redux';
-import { selectFilter } from 'redux/selectors';
+import { selectFilter } from '../../redux/filter/filterSelectors';
+import { selectContacts } from '../../redux/contacts/contactsSelectors';
+import ContactItem from '../ContactItem';
+import { UlList } from './Contacts.styled';
 
-export const Contacts = () => {
-  const deleteContactId = id => {
-    deleteContact(id);
-  };
-
-  const { data: contacts = [], isLoading, error } = useGetContactsQuery();
-  const [deleteContact] = useDeleteContactMutation();
-
+const Contacts = () => {
+  const contacts = useSelector(selectContacts);
   const filter = useSelector(selectFilter);
 
   const visibleContacts = (() => {
@@ -39,28 +22,13 @@ export const Contacts = () => {
 
   return (
     <>
-      {isLoading && <p>Loading...</p>}
-      {error && <p>{error}</p>}
       <UlList>
         {visibleContacts.map(({ id, name, number }) => {
-          return (
-            <LiItem key={id}>
-              <SpanIcon
-                inputColor={`#${Math.floor(Math.random() * 16777215).toString(
-                  16
-                )}`}
-              >
-                <RxAvatar />
-              </SpanIcon>
-              <SpanName>{name}</SpanName>
-              <SpanNumber>{number}</SpanNumber>
-              <ButtonDlt type="button" onClick={() => deleteContactId(id)}>
-                <RiDeleteBin6Line />
-              </ButtonDlt>
-            </LiItem>
-          );
+          return <ContactItem key={id} name={name} number={number} id={id} />;
         })}
       </UlList>
     </>
   );
 };
+
+export default Contacts;
