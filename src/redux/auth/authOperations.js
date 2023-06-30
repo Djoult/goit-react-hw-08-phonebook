@@ -2,9 +2,10 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 import { toast } from 'react-toastify';
-import { clearAuthHeader, setAuthHeader } from 'services/phonebookAPI';
+import { clearAuthHeader, setAuthHeader } from 'services/api';
+// import { clearAuthHeader, setAuthHeader } from 'services/phonebookAPI';
 
-axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
+// axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
 
 // export const setAuthHeader = token => {
 //   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
