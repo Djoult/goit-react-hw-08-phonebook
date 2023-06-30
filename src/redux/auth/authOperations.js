@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { clearAuthHeader, setAuthHeader } from 'services/phonebookAPI';
+import { clearAuthHeader, setAuthHeader } from '../../services/phonebookAPI';
 import { toast } from 'react-toastify';
 
 export const register = createAsyncThunk(
